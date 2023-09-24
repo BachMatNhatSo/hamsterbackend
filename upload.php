@@ -24,7 +24,7 @@ if (isset($_FILES["file"]))
       {  
         $arr = [
             'success' =>true,
-            'message' => "add user success!!",
+            'message' => "add product success!!",
             'name'=>$name
 
     ];
@@ -33,7 +33,7 @@ if (isset($_FILES["file"]))
       {  
         $arr= [
             'success' =>false,
-            'message' => "add user failed!!",
+            'message' => "add product failed!!",
 
     ];
       }  

@@ -1,6 +1,6 @@
 <?php
   	include "connect.php";
-
+      $id = $_POST['id'];
    $tensanpham = $_POST['tensanpham'];
    $giasp = $_POST['giasp'];
    $hinhanh = $_POST['hinhanh'];
@@ -8,7 +8,7 @@
    $loai = $_POST['loai'];
 
 
-   $query = 'INSERT INTO `sanphammoi`(`tensanpham`, `giasp`, `hinhanh`, `mota`, `loai`) VALUES ("'.$tensanpham.'","'.$giasp.'","'.$hinhanh.'","'.$mota.'",'.$loai.')';
+   $query = 'UPDATE `sanphammoi` SET `tensanpham`="'.$tensanpham.'",`giasp`="'.$giasp.'",`hinhanh`="'.$hinhanh.'",`mota`="'.$mota.'",`loai`='.$loai.' WHERE `id`='.$id;
    $data =mysqli_query($conn,$query);
         if ($data == true){
             $arr = [
