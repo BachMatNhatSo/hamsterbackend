@@ -5,6 +5,7 @@
    $password = $_POST['password'];
    $username = $_POST['username'];
    $phone = $_POST['phone'];
+   $uid = $_POST['uid'];
 
    //check exists user
    $query = 'SELECT * FROM `user` WHERE `email` = "'.$email.'"' ;
@@ -20,7 +21,7 @@
    else {
 
         //insert user 
-        $query = 'INSERT INTO `user`(`email`, `password`, `username`, `phone`) VALUES ("'.$email.'" , "'.$password.'","'.$username.'", "'.$phone.'")';
+        $query = 'INSERT INTO `user`(`email`, `password`, `username`, `phone`,`uid`) VALUES ("'.$email.'" , "'.$password.'","'.$username.'", "'.$phone.'","'.$uid.'")';
         $data= mysqli_query($conn,$query);
 
         if ($data == true){
