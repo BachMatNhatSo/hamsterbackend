@@ -1,5 +1,5 @@
 <?php
-    	include "../connect.php";
+    	//include "../connect.php";
         if(isset($_POST['submit'])){
             $tensanpham = $_POST['tensanpham'];
             $giasp = $_POST['giasp'];

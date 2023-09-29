@@ -1,7 +1,3 @@
-<?php
-    	include "../connect.php";
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -28,12 +24,28 @@
         max-width: 100px;
         max-height: 100px;
     }
+
+    .btn-GTthemsan {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-GTthemsan:hover {
+        background-color: #45a049;
+    }
     </style>
 </head>
 
 <body>
 
-    <h2>HTML Table</h2>
+    <h2>Sản Phẩm</h2>
+    <a href="./show-create-sanpham.php" class="btn-GTthemsan">Thêm Sản phẩm mới </a>
 
     <table>
         <tr>
@@ -73,8 +85,8 @@
             echo '</td>
                   <td>' . $mota . '</td>
                   <td>' . $loai . '</td>
-                 <td> <button><a href="update-sanpham.php?updateid='.$id.'">Update</a></button>
-                 <button><a href="delete-sanpham.php?deleteid='.$id.'">Delete</a></button></td>
+                 <td> <button><a href="./show-update-sanpham.php?updateid='.$id.'">Update</a></button>
+                 <button><a href="./show-delete-sanpham.php?deleteid='.$id.'">Delete</a></button></td>
             </tr>';
           }
         }

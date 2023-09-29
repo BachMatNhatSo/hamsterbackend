@@ -1,5 +1,5 @@
 <?php
-    	include "../connect.php";
+    
         if(isset($_GET['deleteid'])){
             $id=$_GET['deleteid'];
             $query = 'DELETE FROM `sanphammoi` WHERE `id` ='.$id;

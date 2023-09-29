@@ -1,5 +1,8 @@
+<?php 
+   // include "../connect.php";
+?>
 <?php
-    	include "../connect.php";
+    	
         $id = $_GET['updateid'];
         if(isset($_POST['submit'])){
             $tensanpham = $_POST['tensanpham'];
