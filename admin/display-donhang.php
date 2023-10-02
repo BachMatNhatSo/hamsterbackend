@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <h2>Đơn Hàng</h2>
-    <a href="./show-donhang.php" class="btn-GTthemsan">Thêm Sản phẩm mới</a>
+    <!-- <a href="./show-donhang.php" class="btn-GTthemsan">Thêm Sản phẩm mới</a> -->
 
     <table>
         <tr>
@@ -145,6 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <button type="submit">Cập nhật</button>
                         </form>
                     </td>
+                    <td> <button><a href="./show-chitiet-sanpham.php?chitietid='.$id.'">Xem Chi Tiết</a></button></td>
                 </tr>';
             }
         }
