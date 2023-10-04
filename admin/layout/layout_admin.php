@@ -95,6 +95,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="./show-chart-sanpham.php">Sản Phẩm Bán Chạy</a>
+                        <a class="collapse-item" href="./show-chart-tongdoanhthu.php">Doanh Thu</a>
                     </div>
                 </div>
             </li>

@@ -39,12 +39,16 @@
             FROM chitietdonhang
             INNER JOIN sanphammoi ON sanphammoi.id = chitietdonhang.idsp
             INNER JOIN donhang ON donhang.id = chitietdonhang.iddonhang
-            WHERE donhang.trangthai = 4
+            WHERE donhang.trangthai = 4 
             GROUP BY chitietdonhang.idsp
         ) AS subquery";
+        
         $dataTong = mysqli_query($conn, $queryTong);
         $rowTong = mysqli_fetch_assoc($dataTong);
         echo $rowTong['TongSoLuongDaBan'];
+            
+
+        
         ?></h3>
     <div>
         <canvas id="myChart"></canvas>

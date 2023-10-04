@@ -78,8 +78,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <th>Email</th>
             <th>Số Lượng</th>
             <th>Tổng Tiền</th>
+            <th>Ngày Đặt</th>
             <th>Trạng thái đơn hàng</th>
             <th>Tương Tác</th>
+            <th>Chi Tiết</th>
         </tr>
         <?php
       
@@ -95,6 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $email = $row['email'];
                 $soluong = $row['soluong'];
                 $tongtien = $row['tongtien'];
+                $ngaydat = $row['ngaydat'];
                 $trangthai = $row['trangthai'];
 
                 $trangthaiText = '';
@@ -104,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $trangthaiText = 'Đơn hàng đang chờ xử lý';
                         break;
                     case 1:
-                        $trangthaiText = 'Đơn hàng đã được xác nhận và đang chuẩn bị';
+                        $trangthaiText = 'Đơn hàng đã được xác nhận ';
                         break;
                     case 2:
                         $trangthaiText = 'Đơn hàng đang trên đường vận chuyển';
@@ -129,6 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <td>' . $email . '</td>
                     <td>' . $soluong . '</td>
                     <td>' . $tongtien . '</td>
+                    <td>' . $ngaydat . '</td>
                     <td>' . $trangthaiText . '</td>
     
                     <td>
