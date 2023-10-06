@@ -1,6 +1,6 @@
 <?php
 	//include "../connect.php";
-
+    //thuc hien khi load trang 
     $query = "SELECT * ,SUM(tongtien) as tongtienthang ,MONTH(`ngaydat`) as thang FROM `donhang` WHERE trangthai=4  GROUP BY YEAR(`ngaydat`),MONTH(`ngaydat`)";
     $data= mysqli_query($conn,$query);
     $TongTienpArray = array();
@@ -9,13 +9,12 @@
         $TongTienpArray[] = $row['tongtienthang'];
         $ThangArray[] = $row['thang'];
     }
-    $TongTien = json_encode($TongTienpArray);
+        $TongTien = json_encode($TongTienpArray);
         $Thang = json_encode($ThangArray);
         $TongTienArray = json_decode($TongTien, true);
         $tong = array_sum($TongTienArray);
-
         $tongFormatted = number_format($tong, 0, ',', '.');
-
+    // thuc hien khi nhan cap nhat
     if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
        if($Thang!=0){
         $Thang = $_POST['thang'];
