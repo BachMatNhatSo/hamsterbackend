@@ -22,7 +22,7 @@
 <html>
 
 <body>
-    <h2>HTML Forms</h2>
+    <h2>Thêm Sản Phẩm Mới</h2>
     <form method="post">
         <div class="form-group">
             <label>Tên sản Phẩm</label>
@@ -42,10 +42,16 @@
         </div>
         <div class="form-group">
             <label>Loại sản Phẩm</label>
-            <input type="text" placeholder="Nhập Loại Sản phẩm" name="loai" />
+            <select name="loai">
+                <option value="1">Hamster robo</option>
+                <option value="2">Hamster bear</option>
+                <option value="3">Vật Dụng</option>
+                <option value="4">Thức Ăn</option>
+                <option value="5">Thuốc-TPCN</option>
+            </select>
         </div>
 
-        <button type="submit" name="submit"> Submit</button>
+        <button type="submit" name="submit"> Thêm Sản Phẩm</button>
     </form>
 
 

@@ -32,24 +32,37 @@
 
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
+    
         if($Thang!=0 && $Nam!=0){
-          
+        
             $Thang = $_POST['thang'];
             $Nam = $_POST['nam'];
+            $selectedMonths = implode(',', $Thang);
+            $selectedYears = implode(',', $Nam);
+            echo '|dong 42 ';
+            echo  $selectedMonths;
+            echo $selectedYears;
             $query = "SELECT sanphammoi.tensanpham, SUM(chitietdonhang.soluong) AS SoLuongDaBan,MONTH(`ngaydat`) as thang, YEAR(`ngaydat`) as nam
             FROM chitietdonhang
             INNER JOIN sanphammoi ON sanphammoi.id = chitietdonhang.idsp
             INNER JOIN donhang ON donhang.id = chitietdonhang.iddonhang
             WHERE donhang.trangthai = 4 
             ";
-            //lọc theo tháng năm
-            if (!empty($Thang) && !empty($Nam) ) {
+            if($selectedYears=='all' && $selectedMonths=='all'){// lấy tất cả năm và tháng
+                echo  " |dong 52 lay tat ca ";
+                echo  $selectedMonths;
+                echo $selectedYears;
+                $query .= " GROUP BY chitietdonhang.idsp";
+            }
+            else if (!empty($Thang) && !empty($Nam) ) {//lọc theo tháng năm
                 if(!in_array('all', $Thang )&& !in_array('all', $Nam) ){
                     $flag = true;
                     $selectedMonths = implode(',', $Thang);
                     $selectedYears = implode(',', $Nam);
+                    echo '|dang chay dong 54 ';
                     echo $selectedMonths;
                     echo $selectedYears;
+                    
                     $query .= "AND MONTH(`ngaydat`) IN ($selectedMonths) AND YEAR(`ngaydat`) IN ($selectedYears) GROUP BY chitietdonhang.idsp";
     
                     //tinh so luong san pham tung thang nam
@@ -68,8 +81,10 @@
                     $flag = true;
                     $selectedMonths = implode(',', $Thang);
                     $selectedYears = implode(',', $Nam);
+                    echo 'dang chay dong 75';
                     echo $selectedMonths;
                     echo $selectedYears;
+                    
                     $query .= "AND  YEAR(`ngaydat`) IN ($selectedYears) GROUP BY chitietdonhang.idsp";
     
                     //tinh so luong san pham tung thang nam
@@ -87,9 +102,7 @@
                 }
                 
             } // nếu không chọn theo tháng năm thì sẽ trả ra tất cả  
-            else {
-                $query .= "GROUP BY chitietdonhang.idsp";
-            }
+          
             $data= mysqli_query($conn,$query);
             $tenspArray = array();
             $soluongArray = array();
@@ -105,9 +118,6 @@
             $soluong = json_encode($soluongArray);
             $Thang = json_encode($ThangArray);
             $Nam = json_encode($NamArray);
-        
-            
-            
         }
         
         
@@ -118,6 +128,7 @@
     
 	 
 ?>
+<!-- dropdown list  -->
 <form method="POST" action="">
     <select name="thang[]" onchange="updateTrangThai(this)">
         <option value="all" <?php echo (in_array('all', $ThangArray) ? ' selected' : ''); ?>>Tất cả</option>
@@ -146,7 +157,7 @@
     ?>
     </select>
 
-    <button type="submit">Cập nhật</button>
+    <button type="submit">Lọc</button>
 </form>
 <!DOCTYPE html>
 <html lang="en">
