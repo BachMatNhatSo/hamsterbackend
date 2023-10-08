@@ -1,21 +1,29 @@
 <?php
-    	//include "../connect.php";
-        if(isset($_POST['submit'])){
-            $tensanpham = $_POST['tensanpham'];
-            $giasp = $_POST['giasp'];
-            $hinhanh = $_POST['hinhanh'];
-            $mota = $_POST['mota'];
-            $loai = $_POST['loai'];
-
-
-   $query = 'INSERT INTO `sanphammoi`(`tensanpham`, `giasp`, `hinhanh`, `mota`, `loai`) VALUES ("'.$tensanpham.'","'.$giasp.'","'.$hinhanh.'","'.$mota.'",'.$loai.')';
-            $result= mysqli_query($conn,$query);
+    //include "../connect.php";
+    if(isset($_POST['submit'])){
+        $tensanpham = $_POST['tensanpham'];
+        $giasp = $_POST['giasp'];
+        $hinhanh = $_FILES['hinhanh']['name'];
+        $hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
+        $mota = $_POST['mota'];
+        $loai = $_POST['loai'];
+        $sltonkho = $_POST['sltonkho'];
+        
+        $upload_path = '../../images/'; // Đường dẫn thư mục lưu trữ ảnh tải lên
+        $upload_destination = realpath($upload_path) . '/' . $hinhanh;
+        
+        if(move_uploaded_file($hinhanh_tmp, $upload_destination)){
+            $query = 'INSERT INTO `sanphammoi`(`tensanpham`, `giasp`, `hinhanh`, `mota`, `loai`, `sltonkho`) VALUES ("'.$tensanpham.'","'.$giasp.'","'.$hinhanh.'","'.$mota.'",'.$loai.','.$sltonkho.')';
+            $result = mysqli_query($conn, $query);
             if($result){
-                echo 'thêm thành công ';
+                echo 'Thêm thành công';
             }else{
-                echo 'thêm không thành công ';
+                echo 'Thêm không thành công';
             }
+        }else{
+            echo 'Lỗi khi tải lên ảnh';
         }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +31,7 @@
 
 <body>
     <h2>Thêm Sản Phẩm Mới</h2>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label>Tên sản Phẩm</label>
             <input type="text" placeholder="Nhập Tên Sản phẩm" name="tensanpham" />
@@ -34,7 +42,7 @@
         </div>
         <div class="form-group">
             <label>Ảnh sản Phẩm</label>
-            <input type="text" placeholder="Nhập Link Sản phẩm" name="hinhanh" />
+            <input type="file" name="hinhanh" />
         </div>
         <div class="form-group">
             <label>Mô tả sản Phẩm</label>
@@ -50,11 +58,13 @@
                 <option value="5">Thuốc-TPCN</option>
             </select>
         </div>
+        <div class="form-group">
+            <label>Số lượng nhập kho: </label>
+            <input type="text" placeholder="Số lượng tồn kho" name="sltonkho" />
+        </div>
 
         <button type="submit" name="submit"> Thêm Sản Phẩm</button>
     </form>
-
-
 </body>
 
 </html>

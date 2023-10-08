@@ -22,6 +22,14 @@
                 foreach ($chitiet as $key => $value) {
                     $truyvan = 'INSERT INTO `chitietdonhang`(`iddonhang`, `idsp`, `soluong`, `gia`) VALUES ('.$iddonhang["iddonghang"].','.$value["idsp"].','.$value["soluong"].',"'.$value["giasp"].'")';
                     $data= mysqli_query($conn,$truyvan);
+                    //xu ly hang ton kho 
+                    $truyvankho = 'SELECT `sltonkho` FROM `sanphammoi` WHERE `id` ='.$value["idsp"];
+                    $data1= mysqli_query($conn,$truyvankho);
+                    $sltrenkho = mysqli_fetch_assoc($data1) ;     
+                    //update lại số lượng sau khi đặt // ps: chưa xử lý logic
+                    $truyvankho2 = 'UPDATE `sanphammoi` SET `sltonkho`='.$sltrenkho['sltonkho']-$value['soluong'].' WHERE `id` = '.$value["idsp"];
+                    $data2= mysqli_query($conn,$truyvankho2);
+
                 }   
                 if($data==true){
                     $arr =[

@@ -55,6 +55,7 @@
             <th>Link Ảnh</th>
             <th>Mô Tả</th>
             <th>Loại</th>
+            <th>Số Lượng Tồn</th>
             <th>Tương Tác</th>
         </tr>
         <?php
@@ -68,23 +69,54 @@
             $hinhanh=$row['hinhanh'];
             $mota=$row['mota'];
             $loai=$row['loai'];
+            $sltonkho=$row['sltonkho'];
+
+           
+
+            $trangthaiText = '';
+            switch ($loai) {
+              
+                case 0:
+                    $trangthaiText = 'Loading...';
+                    break;
+                case 1:
+                    $trangthaiText = 'Robo ';
+                    break;
+                case 2:
+                    $trangthaiText = 'Bear';
+                    break;
+                case 3:
+                    $trangthaiText = 'Vật dụng';
+                    break;
+                case 4:
+                    $trangthaiText = 'Thức Ăn';
+                    break;
+                case 5:
+                    $trangthaiText = 'Thuốc- TPCM';
+                    break;
+                default:
+                    $trangthaiText = 'Đang chờ xử lý';
+                    break;
+            }
+
             echo ' 
             <tr>
                 <td>' . $id . '</td>
                 <td>' . $tensanpham . '</td>
-                <td>' . $giasp . '</td>
+                <td>' . number_format($giasp) . ' VND</td>
                 <td>';
 
             // Kiểm tra nếu hình ảnh là liên kết
             if (strpos($hinhanh, 'https') === 0) {
                 echo '<img class="product-image" src="' . $hinhanh . '" alt="Hình ảnh">';
             } else {
-                echo '<img class="product-image" src="../images/' . $hinhanh . '" alt="Hình ảnh">';
+                echo '<img class="product-image" src="../../images/' . $hinhanh . '" alt="Hình ảnh">';
             }
 
             echo '</td>
                   <td>' . $mota . '</td>
-                  <td>' . $loai . '</td>
+                  <td>' . $trangthaiText . '</td>
+                  <td>' . $sltonkho . '</td>
                  <td> <button><a href="./show-update-sanpham.php?updateid='.$id.'">Update</a></button>
                  <button><a href="./show-delete-sanpham.php?deleteid='.$id.'">Delete</a></button></td>
             </tr>';
