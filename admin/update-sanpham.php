@@ -15,9 +15,8 @@
             $mota = $_POST['mota'];
             $loai = $_POST['loai'];
             $sltonkho =$_POST['sltonkho'];
-
-
-
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $thoigian = date('Y-m-d H:i:s');
    $query = 'UPDATE `sanphammoi` SET `tensanpham`="'.$tensanpham.'",`giasp`="'.$giasp.'",`hinhanh`="'.$hinhanh.'",`mota`="'.$mota.'",`loai`='.$loai.',`sltonkho`='.$sltonkho.' WHERE `id`='.$id;
             $result= mysqli_query($conn,$query);
             if($result){
@@ -25,6 +24,10 @@
             }else{
                 echo 'thêm không thành công ';
             }
+
+            $query3 = 'INSERT INTO lichsu_thaydoi (sanphammoi_id, tensanpham, giasp, hinhanh, mota, loai, sltonkho, thoigian)
+           VALUES ("'.$id.'", "'.$tensanpham.'", "'.$giasp.'", "'.$hinhanh.'", "'.$mota.'", "'.$loai.'", "'.$sltonkho.'", "'.$thoigian.'")';
+$result3 = mysqli_query($conn, $query3);
         }
 ?>
 

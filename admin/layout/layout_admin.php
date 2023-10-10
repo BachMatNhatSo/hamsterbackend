@@ -68,6 +68,7 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="./show-sanpham.php">Sản Phẩm</a>
                         <a class="collapse-item" href="./show-donhang.php">Đơn Hàng</a>
+                        <a class="collapse-item" href="./show-lichsuthaydoi-sanpham.php">Lịch sử Thay Đổi </a>
                         <!-- <a class="collapse-item" href="./show-chart-sanpham.php">Sản Phẩm Bán Chạy</a> -->
                     </div>
                 </div>
