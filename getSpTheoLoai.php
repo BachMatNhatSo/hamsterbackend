@@ -5,7 +5,7 @@
     $pos = ($page-1)*$total;
     $loai = $_POST['loai'];
 
-	$query = 'SELECT * FROM `sanphammoi` WHERE `loai`='.$loai.' LIMIT '.$pos.' ,'.$total.'';
+	$query = 'SELECT * FROM `sanphammoi` WHERE `loai`='.$loai.' AND `isdeleted` =0  LIMIT '.$pos.' ,'.$total.'';
 	$data= mysqli_query($conn,$query);
 	$result = array();
 	while($row = mysqli_fetch_assoc($data)){

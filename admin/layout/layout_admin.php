@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
 
 </head>
 
@@ -69,6 +71,7 @@
                         <a class="collapse-item" href="./show-sanpham.php">Sản Phẩm</a>
                         <a class="collapse-item" href="./show-donhang.php">Đơn Hàng</a>
                         <a class="collapse-item" href="./show-lichsuthaydoi-sanpham.php">Lịch sử Thay Đổi </a>
+                        <a class="collapse-item" href="./show-users.php">Khách Hàng </a>
                         <!-- <a class="collapse-item" href="./show-chart-sanpham.php">Sản Phẩm Bán Chạy</a> -->
                     </div>
                 </div>

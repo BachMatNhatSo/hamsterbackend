@@ -29,42 +29,46 @@
 <!DOCTYPE html>
 <html>
 
-<body>
-    <h2>Thêm Sản Phẩm Mới</h2>
-    <form method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label>Tên sản Phẩm</label>
-            <input type="text" placeholder="Nhập Tên Sản phẩm" name="tensanpham" />
-        </div>
-        <div class="form-group">
-            <label>Giá sản Phẩm</label>
-            <input type="text" placeholder="Nhập Giá Sản phẩm" name="giasp" />
-        </div>
-        <div class="form-group">
-            <label>Ảnh sản Phẩm</label>
-            <input type="file" name="hinhanh" />
-        </div>
-        <div class="form-group">
-            <label>Mô tả sản Phẩm</label>
-            <input type="text" placeholder="Nhập Mô Tả Sản phẩm" name="mota" />
-        </div>
-        <div class="form-group">
-            <label>Loại sản Phẩm</label>
-            <select name="loai">
-                <option value="1">Hamster robo</option>
-                <option value="2">Hamster bear</option>
-                <option value="3">Vật Dụng</option>
-                <option value="4">Thức Ăn</option>
-                <option value="5">Thuốc-TPCN</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Số lượng nhập kho: </label>
-            <input type="text" placeholder="Số lượng tồn kho" name="sltonkho" />
-        </div>
 
-        <button type="submit" name="submit"> Thêm Sản Phẩm</button>
-    </form>
+
+<body>
+    <div class="body-container">
+        <H1 class="h1themsp">Thêm Sản Phẩm Mới</H1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="form-label">Tên sản Phẩm</label>
+                <input class="form-input" type="text" placeholder="Nhập Tên Sản phẩm" name="tensanpham" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Giá sản Phẩm</label>
+                <input class="form-input" type="text" placeholder="Nhập Giá Sản phẩm" name="giasp" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Ảnh sản Phẩm</label>
+                <input class="form-input" type="file" name="hinhanh" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Mô tả sản Phẩm</label>
+                <input class="form-input" type="text" placeholder="Nhập Mô Tả Sản phẩm" name="mota" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Loại sản Phẩm</label>
+                <select name="loai">
+                    <option value="1">Hamster robo</option>
+                    <option value="2">Hamster bear</option>
+                    <option value="3">Vật Dụng</option>
+                    <option value="4">Thức Ăn</option>
+                    <option value="5">Thuốc-TPCN</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Số lượng nhập kho: </label>
+                <input class="form-input" type="text" placeholder="Số lượng tồn kho" name="sltonkho" />
+            </div>
+
+            <button type="submit" name="submit"> Thêm Sản Phẩm</button>
+        </form>
+    </div>
 </body>
 
 </html>

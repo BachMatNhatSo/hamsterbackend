@@ -1,6 +1,6 @@
 <?php
 	include "connect.php";
-	$query = "SELECT * FROM `sanphammoi` ORDER BY id DESC";
+	$query = "SELECT  * FROM `sanphammoi` WHERE `isdeleted` =0 ORDER BY id DESC";
 	$data= mysqli_query($conn,$query);
 	$result = array();
 	while($row = mysqli_fetch_assoc($data)){

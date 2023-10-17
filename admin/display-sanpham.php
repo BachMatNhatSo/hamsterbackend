@@ -59,7 +59,7 @@
             <th>Tương Tác</th>
         </tr>
         <?php
-        $query = "SELECT  * FROM `sanphammoi`";
+        $query = "SELECT  * FROM `sanphammoi` WHERE `isdeleted` =0";
           $result= mysqli_query($conn,$query);
           if($result){
           while(  $row=mysqli_fetch_assoc($result)){
